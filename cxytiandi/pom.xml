@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cxytiandi</groupId>
+	<artifactId>cxytiandi</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<modules>
+		<!-- API 网关 -->
+		<module>cxytiandi-open-api</module>
+		<!-- MODEL 类的定义 -->
+		<module>cxytiandi-model</module>
+		<!-- 公共的库 -->
+		<module>cxytiandi-common</module>
+		<!-- RPC API 接口定义 -->
+		<module>cxytiandi-api-interface</module>
+		<!-- 楼栋服务 -->
+		<module>cxytiandi-ld-service</module>
+		<!-- 房号服务 -->
+		<module>cxytiandi-house-service</module>
+	</modules>
+	<properties>
+		<cxytiandi.version>1.0.0</cxytiandi.version>
+		<java.version>1.7</java.version>
+		<dubbo.version>2.8.4</dubbo.version>
+		<zookeeper.version>3.4.6</zookeeper.version>
+		<sgroschupf.version>0.1</sgroschupf.version>
+		<resteasy.version>3.0.7.Final</resteasy.version>
+		<validation.version>1.0.0.GA</validation.version>
+		<hibernate.version>4.3.1.Final</hibernate.version>
+		<jetty.version>6.1.26</jetty.version>
+		<spring.boot.version>1.5.6.RELEASE</spring.boot.version>
+		<conf.client.version>1.0</conf.client.version>
+		<cxytiandi-jdbc.version>1.0.0</cxytiandi-jdbc.version>
+		<openfeign.version>9.5.0</openfeign.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencyManagement>
+
+		<dependencies>
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>cxytiandi-api-interface</artifactId>
+				<version>${cxytiandi.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>cxytiandi-model</artifactId>
+				<version>${cxytiandi.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>cxytiandi-common</artifactId>
+				<version>${cxytiandi.version}</version>
+			</dependency>
+
+			<!-- Smconf -->
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>cxytiandi-conf-client</artifactId>
+				<version>${conf.client.version}</version>
+			</dependency>
+
+			<!-- dubbo-trace 请求跟踪，服务熔断 -->
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>dubbo-trace</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+
+			<!-- jdbc orm -->
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>cxytiandi-jdbc</artifactId>
+				<version>${cxytiandi-jdbc.version}</version>
+			</dependency>
+
+			<!-- spring boot -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- dubbox -->
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>spring-boot-starter-dubbox</artifactId>
+				<version>${cxytiandi.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.esotericsoftware.kryo</groupId>
+				<artifactId>kryo</artifactId>
+				<version>2.24.0</version>
+			</dependency>
+			<dependency>
+				<groupId>de.javakaffee</groupId>
+				<artifactId>kryo-serializers</artifactId>
+				<version>0.26</version>
+			</dependency>
+
+			<!-- zookeeper -->
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>${zookeeper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.sgroschupf</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>${sgroschupf.version}</version>
+			</dependency>
+
+			<!-- REST API CALL -->
+			<dependency>
+				<groupId>io.github.openfeign</groupId>
+				<artifactId>feign-core</artifactId>
+				<version>${openfeign.version}</version>
+			</dependency>
+			
+			<!-- JWT -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>0.7.0</version>
+			</dependency>
+			
+			<!-- Swagger -->
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>spring-boot-starter-swagger</artifactId>
+				<version>${cxytiandi.version}</version>
+			</dependency>
+			
+			<!-- cache -->
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>spring-boot-starter-cache</artifactId>
+				<version>${cxytiandi.version}</version>
+			</dependency>
+			
+			<!-- guava -->
+			<dependency>
+	           <groupId>com.google.guava</groupId>
+	           <artifactId>guava</artifactId>
+	           <version>18.0</version>
+       		</dependency>
+        
+	        <!-- lock -->
+			<dependency>
+				<groupId>com.cxytiandi</groupId>
+				<artifactId>spring-boot-starter-lock-redis</artifactId>
+				<version>${cxytiandi.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
